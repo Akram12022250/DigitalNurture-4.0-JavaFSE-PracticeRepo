@@ -10,7 +10,6 @@ public class InvestmentForecast {
         }
         return totalGrowth / (pastData.size() - 1);
     }
-
     // Step 2: Forecast investment using recursion
     public static double forecastInvestment(int yearsToPredict, double initialInvestment, double growthRate) {
         if (yearsToPredict == 0) {
@@ -18,19 +17,15 @@ public class InvestmentForecast {
         }
         return forecastInvestment(yearsToPredict - 1, initialInvestment, growthRate) * (1 + growthRate);
     }
-
     public static void main(String[] args) {
         // Past investment value data
         List<Double> pastData = Arrays.asList(10000.0, 11000.0, 12100.0, 13000.0, 14300.0);
         double averageGrowthRate = calculateAverageGrowthRate(pastData);
         System.out.printf("Average Annual Growth Rate: %.2f%%\n", averageGrowthRate * 100);
-
         // Initial investment
         double initialInvestment = 10000.0;
-
         // Years to forecast
         int forecastYears = 5;
-
         System.out.println("\nForecasting future investment growth:");
         for (int i = 1; i <= forecastYears; i++) {
             double futureValue = forecastInvestment(i, initialInvestment, averageGrowthRate);
